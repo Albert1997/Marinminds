@@ -14,7 +14,7 @@ Anaconda
 A conda environment is used to install all the packages in.  
 
 1. Create a new conda environment: `conda create -n marinminds python=3.6`  
-2. And activate it: `conda activate marinminds.6`  
+2. And activate it: `conda activate marinminds`  
 3. Go to the folder where the code is cloned: cd `$BASE_FOLDER`  
 4. Install all the required packages: `pip install -r requirements.txt`
 
