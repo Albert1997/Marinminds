@@ -1,4 +1,4 @@
-#Marinminds Realtime image segmentation
+# Marinminds Realtime image segmentation
 
 This repository contains the code and a trained model to perform realtime segmentation on a video source such as a webcam.
  
@@ -6,7 +6,7 @@ This repository contains the code and a trained model to perform realtime segmen
 Make sure you have installed the following requirements:
 
 CUDA 10.0  
-CUDNN 7  
+cuDNN 7.6  
 Anaconda 
 
 ## Installing Packages
@@ -14,7 +14,7 @@ Anaconda
 A conda environment is used to install all the packages in.  
 
 1. Create a new conda environment: `conda create -n marinminds python=3.6`  
-2. And activate it: `conda activate nousplatform3.6`  
+2. And activate it: `conda activate marinminds.6`  
 3. Go to the folder where the code is cloned: cd `$BASE_FOLDER`  
 4. Install all the required packages: `pip install -r requirements.txt`
 
