@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from inference.common_inference import construct_model
 
 KEEP_ASPECT_RATIO = -1
 

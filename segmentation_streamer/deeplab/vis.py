@@ -17,9 +17,10 @@
 
 See model.py for more details and usage.
 """
-import math
 import os.path
 import time
+
+import math
 import numpy as np
 import tensorflow as tf
 from deeplab import common

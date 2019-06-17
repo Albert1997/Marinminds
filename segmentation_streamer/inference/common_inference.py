@@ -1,8 +1,8 @@
 # coding: utf-8
 
+import deeplab.model as model_lib
 import tensorflow as tf
 from deeplab.common import ModelOptions
-import deeplab.model as model_lib
 
 slim = tf.contrib.slim
 

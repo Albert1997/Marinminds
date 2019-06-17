@@ -1,5 +1,5 @@
-from deeplab_parser import Parser
 import cv2
+from deeplab_parser import Parser
 
 
 class Streamer():

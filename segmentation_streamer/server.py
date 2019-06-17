@@ -1,10 +1,11 @@
+from argparse import ArgumentParser
+
 import cv2
-from flask import Flask, render_template, Response
-from segm_streamer import Streamer
 from deeplab_parser import Parser
+from flask import Flask, render_template, Response
 from inference.common_inference import construct_model
 from inference.inference import inference
-from argparse import ArgumentParser
+from segm_streamer import Streamer
 
 app = Flask(__name__)
 
