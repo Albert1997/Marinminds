@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/yannick/Projects/marinminds/models/deeplab_v3_plus_53_19e_0095/model_weights/model.ckpt"
+all_model_checkpoint_paths: "/home/yannick/Projects/marinminds/models/deeplab_v3_plus_53_19e_0095/model_weights/model.ckpt"

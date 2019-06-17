@@ -1,0 +1,17 @@
+{
+  "Background": [
+    0
+  ],
+  "Water": [
+    1
+  ],
+  "Boat": [
+    2
+  ],
+  "Obstacle": [
+    3
+  ],
+  "Buoy": [
+    4
+  ]
+}

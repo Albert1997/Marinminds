@@ -1,0 +1,31 @@
+{
+    "classes": [{
+            "title": "Background",
+            "shape": "bitmap",
+            "color": "#630F8A",
+            "geometry_config": {}
+        },
+        {
+            "title": "Water",
+            "shape": "bitmap",
+            "color": "#4A90E2",
+            "geometry_config": {}
+        }, {
+            "title": "Obstacle",
+            "shape": "bitmap",
+            "color": "#D8723B",
+            "geometry_config": {}
+        }, {
+            "title": "Boat",
+            "shape": "bitmap",
+            "color": "#7ED321",
+            "geometry_config": {}
+        }, {
+            "title": "Buoy",
+            "shape": "bitmap",
+            "color": "#D0021B",
+            "geometry_config": {}
+        }
+    ],
+    "tags": []
+}
