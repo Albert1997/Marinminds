@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from inference.common_inference import construct_model
 
 KEEP_ASPECT_RATIO = -1
 
@@ -48,8 +49,9 @@ def inference(img, session, logits, inputs):
     input_image_var = np.expand_dims(img.astype(np.float32), 0)
     raw_pixelwise_probas_array = session.run(
         logits, feed_dict={inputs: input_image_var})
+    pixelwise_probas_array = np.squeeze(raw_pixelwise_probas_array[0])
     # Resize back to the original
-    pixelwise_probas_array = cv2.resize(np.squeeze(
-        raw_pixelwise_probas_array[0]), (w, h), cv2.INTER_LINEAR)
+    # pixelwise_probas_array = cv2.resize(np.squeeze(
+    #     raw_pixelwise_probas_array[0]), (w, h), cv2.INTER_LINEAR)
 
     return pixelwise_probas_array

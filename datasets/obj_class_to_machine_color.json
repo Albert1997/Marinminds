@@ -2,16 +2,16 @@
   "Background": [
     0
   ],
-  "Water": [
+  "Boat": [
     1
   ],
-  "Boat": [
+  "Buoy": [
     2
   ],
   "Obstacle": [
     3
   ],
-  "Buoy": [
+  "Water": [
     4
   ]
 }

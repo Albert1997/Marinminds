@@ -16,8 +16,9 @@
 """Tests for preprocess_utils."""
 import numpy as np
 import tensorflow as tf
-from deeplab.core import preprocess_utils
+
 from tensorflow.python.framework import errors
+from deeplab.core import preprocess_utils
 
 
 class PreprocessUtilsTest(tf.test.TestCase):

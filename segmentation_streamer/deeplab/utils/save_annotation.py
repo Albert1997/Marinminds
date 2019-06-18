@@ -18,9 +18,10 @@ This script saves an annotation as one png image, and has the option to add
 colormap to the png image for better visualization.
 """
 
-import PIL.Image as img
 import numpy as np
+import PIL.Image as img
 import tensorflow as tf
+
 from deeplab.utils import get_dataset_colormap
 
 

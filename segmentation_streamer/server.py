@@ -1,11 +1,11 @@
-from argparse import ArgumentParser
-
-import cv2
-from deeplab_parser import Parser
 from flask import Flask, render_template, Response
+from segm_streamer import Streamer
+from deeplab_parser import Parser
 from inference.common_inference import construct_model
 from inference.inference import inference
-from segm_streamer import Streamer
+import cv2
+import time
+import pdb
 
 app = Flask(__name__)
 
@@ -34,17 +34,9 @@ def gen(streamer):
 
 @app.route('/video')
 def video():
-    return Response(gen(Streamer()),
+    return Response(gen(Streamer(24)),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
-
-def main():
-    global camera_id
-    arguments_parser = ArgumentParser()
-    arguments_parser.add_argument("--camera_id", required=False, help="Specify the id of the camera to use. Usually the first camera connected is 0", default=0)
-    arguments = arguments_parser.parse_args()
-    camera_id = int(arguments.camera_id)
-    app.run(host='127.0.0.1', debug=False)
 
 
 if __name__ == '__main__':
-    main()
+    app.run(host='127.0.0.1', debug=False)

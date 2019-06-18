@@ -1,15 +1,16 @@
-import json
-
 import cv2
 import numpy as np
+from matplotlib import pyplot as plt
+import json
+import time
 
 
 class Parser():
     def __init__(self):
-        with open('../datasets/deeplab/meta.json', 'r') as meta_json:
+        with open('../datasets/meta.json', 'r') as meta_json:
             meta = json.load(meta_json)
 
-        with open('../datasets/deeplab/obj_class_to_machine_color.json', 'r') as obj_map_json:
+        with open('../datasets/obj_class_to_machine_color.json', 'r') as obj_map_json:
             obj_map = json.load(obj_map_json)
 
         self.img_classes = {}
@@ -27,17 +28,18 @@ class Parser():
     def parse(self, arr, img):
         arr = np.argmax(arr, axis=2)
         arr = np.expand_dims(arr, axis=2)
-        img_class = arr.T
+        arr = np.pad(arr, pad_width=((0, 0), (0, 0), (0, 2)), mode='constant', constant_values=0)
+        img_class, _, _ = arr.T
 
         for _, img_val in self.img_classes.items():
             obj_group = img_class == img_val['value']
-            if obj_group.any():
-                arr = np.where(obj_group.T, arr, img_val['color'])
+            arr[...][obj_group.T] = img_val['color']
 
         arr = arr.astype(np.uint8)
         arr = cv2.cvtColor(arr, cv2.COLOR_RGB2BGR)
+        arr = cv2.resize(arr, (1920, 1080), cv2.INTER_LINEAR)
 
         result_img = cv2.addWeighted(
             arr, 0.5, img, 0.5, 0)
-
+            
         return result_img
