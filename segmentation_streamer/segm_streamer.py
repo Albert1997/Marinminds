@@ -5,24 +5,13 @@ import cv2
 
 
 class Streamer():
-    def __init__(self, framerate):
+    def __init__(self, framerate, camera):
         self.parser = Parser()
         self.time = 0
         self.framerate = framerate
         self.current_frame = 0
 
-        """
-        self.frames = [
-            'marinminds_video_0 01',
-            'marinminds_video_0 02',
-            'marinminds_video_0 03',
-            'marinminds_video_0 04',
-            'marinminds_video_0 05'
-        ]
-        """
-
-        self.capture = cv2.VideoCapture(
-            '../datasets/deeplab/marinminds_vid_1.mp4')
+        self.capture = cv2.VideoCapture(camera)
         self.counter = 0
         self.total_frames = self.capture.get(7)
 

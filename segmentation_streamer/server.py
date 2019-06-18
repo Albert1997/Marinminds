@@ -35,7 +35,7 @@ def gen(streamer):
 
 @app.route('/video')
 def video():
-    return Response(gen(Streamer(24)),
+    return Response(gen(Streamer(24, camera_id)),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 def main():
