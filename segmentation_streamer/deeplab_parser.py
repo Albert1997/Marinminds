@@ -26,6 +26,7 @@ class Parser():
                         int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
     def parse(self, arr, img):
+        h, w, c = img.shape
         arr = np.argmax(arr, axis=2)
         arr = np.expand_dims(arr, axis=2)
         arr = np.pad(arr, pad_width=((0, 0), (0, 0), (0, 2)), mode='constant', constant_values=0)
@@ -37,7 +38,7 @@ class Parser():
 
         arr = arr.astype(np.uint8)
         arr = cv2.cvtColor(arr, cv2.COLOR_RGB2BGR)
-        arr = cv2.resize(arr, (1920, 1080), cv2.INTER_LINEAR)
+        arr = cv2.resize(arr, (w, h), cv2.INTER_LINEAR)
 
         result_img = cv2.addWeighted(
             arr, 0.5, img, 0.5, 0)

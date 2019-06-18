@@ -5,13 +5,19 @@ import cv2
 
 
 class Streamer():
-    def __init__(self, framerate, camera):
+    def __init__(self, framerate, file):
         self.parser = Parser()
-        self.time = 0
+        self.time = time.time()
         self.framerate = framerate
         self.current_frame = 0
+        self.accumulator = 0.0
 
-        self.capture = cv2.VideoCapture(camera)
+        if file != '':
+            file = file.replace("\\", "/")
+            self.capture = cv2.VideoCapture(file)
+        else:
+            self.capture = cv2.VideoCapture("rtsp://root:marinminds@172.16.2.12:554/axis-media/media.amp")
+        
         self.counter = 0
         self.total_frames = self.capture.get(7)
 
@@ -20,14 +26,19 @@ class Streamer():
         self.capture.release()
 
     def get_frame(self):
-        if self.time == 0:
-            self.current_frame = self.current_frame + \
-                (int(time.time() - self.time) * int(self.framerate))
+        frames = (time.time() - self.time) * self.framerate
+        self.accumulator += frames - int(frames)
+        frames = int(frames)
 
-            if self.total_frames >= self.current_frame:
-                self.capture.set(1, self.current_frame)
+        if self.accumulator >= 1:
+            frames += 1
+            self.accumulator -= 1
+
+        for i in range(frames):
+            self.capture.read()
 
         frame = self.capture.read()[1]
+        print("fps = {0}".format(1/(time.time()-self.time)))
         self.time = time.time()
         # self.counter += 1
         # if self.counter == 5:

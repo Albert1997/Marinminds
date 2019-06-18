@@ -35,15 +35,15 @@ def gen(streamer):
 
 @app.route('/video')
 def video():
-    return Response(gen(Streamer(24, camera_id)),
+    return Response(gen(Streamer(25, file)),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 def main():
-    global camera_id
+    global file
     arguments_parser = ArgumentParser()
-    arguments_parser.add_argument("--camera_id", required=False, help="Specify the id of the camera to use. Usually the first camera connected is 0", default=0)
+    arguments_parser.add_argument("--file", required=False, help="Specify the file location (optional)", default='')
     arguments = arguments_parser.parse_args()
-    camera_id = int(arguments.camera_id)
+    file = str(arguments.file)
     app.run(host='127.0.0.1', debug=False)
 
 
