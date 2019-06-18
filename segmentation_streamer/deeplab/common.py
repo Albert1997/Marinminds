@@ -80,6 +80,8 @@ flags.DEFINE_integer('decoder_output_stride', 4,
                      'The ratio of input to output spatial resolution when '
                      'employing decoder to refine segmentation results.')
 
+flags.DEFINE_integer('camera_id', 0,
+                     'Id of the camera to use, default is 0')
 flags.DEFINE_boolean('decoder_use_separable_conv', True,
                      'Employ separable convolution for decoder or not.')
 
