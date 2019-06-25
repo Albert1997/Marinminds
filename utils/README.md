@@ -1,4 +1,4 @@
-# Miscellaneous Utillities
+# Miscellaneous Utilities
 Here are some utility scripts to help working with point clouds and neural nets.
 
 ## meta_to_pb.py
