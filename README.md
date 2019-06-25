@@ -2,6 +2,9 @@
 
 This repository contains the code and a trained model to perform realtime segmentation on a video source such as a webcam.
  
+## Cloning
+Before cloning the project make sure that you have installed git lfs in order to clone the models. More info can be found here: https://git-lfs.github.com/
+ 
 ## Requirements
 Make sure you have installed the following requirements:
 
