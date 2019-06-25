@@ -19,5 +19,14 @@ A conda environment is used to install all the packages in.
 4. Install all the required packages: `pip install -r requirements.txt`
 
 ## Running the Camera server
-To start the camera server all you have to do is: `python server.py`
-Optionally you can specify another camera_id with the `--camera_id` flag, the default value is 0
+To start the camera server all you have to do is: `cd $BASE_FOLDER/segmentation_streamer` and `python server.py`
+Optionally you can specify a video file to process with the `--file` flag, the default value is `''`
+
+## Configuration
+### Framerate
+The framerate of the video file or stream can be set in line 38 of segmentation_streamer/server.py 
+### Stream address
+The address of the stream to open can be set in line 19 of segmentation_streamer/segm_streaming.py
+
+## Utils
+See the utils folder for more information.
